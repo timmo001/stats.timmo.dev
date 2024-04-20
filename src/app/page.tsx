@@ -27,8 +27,7 @@ export default async function Home() {
       />
       <Header user={user} />
       <main className="grid grid-cols-1 gap-12 mt-16 text-center">
-        <h2 className="text-5xl font-extralight">Metrics</h2>
-        <h3 className="text-3xl font-light">GitHub</h3>
+        <h2 className="text-5xl font-extralight">GitHub Metrics</h2>
         <section className="grid grid-cols-4 gap-12">
           <Metric
             data={{
