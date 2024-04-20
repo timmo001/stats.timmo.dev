@@ -4,7 +4,7 @@ This is a small portal to display metrics. It is built with [Next.js](https://ne
 
 ## Can I contribute to / fork this project?
 
-Of course! This project is open source and licensed under the Apache 2.0 license. Feel free to fork this project and make it your own.
+Yes! This project is open source and licensed under the Apache 2.0 license. Feel free to fork this project and make it your own.
 
 1. Fork this repository
 1. Clone your forked repository
