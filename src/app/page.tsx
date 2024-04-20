@@ -32,6 +32,7 @@ export default async function Home() {
         <section className="grid grid-cols-4 gap-12">
           <Metric
             data={{
+              key: "repositories",
               title: "Repositories",
               value: user.repositories.totalCount,
               secondaryValue: `(${repositoriesDiskUsageGB} GB)`,
@@ -39,18 +40,22 @@ export default async function Home() {
           />
           <Metric
             data={{
+              key: "followers",
               title: "Followers",
               value: user.followers.totalCount,
+              secondaryValue: `(${user.following.totalCount} following)`,
             }}
           />
           <Metric
             data={{
-              title: "Following",
-              value: user.following.totalCount,
+              key: "watching",
+              title: "Watching",
+              value: user.watching.totalCount,
             }}
           />
           <Metric
             data={{
+              key: "starredRepositories",
               title: "Stars",
               value: user.starredRepositories.totalCount,
             }}

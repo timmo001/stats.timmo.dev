@@ -9,8 +9,8 @@ export interface UserNode {
   followers: Count;
   following: Count;
   repositories: Repositories;
-  starredRepositories: Count;
   socialAccounts: SocialAccounts;
+  starredRepositories: Count;
   status: Status;
   watching: Count;
 }

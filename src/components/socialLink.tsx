@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import Icon from "@mdi/react";
 import {
   mdiDevTo,
@@ -8,7 +9,6 @@ import {
 } from "@mdi/js";
 
 import { SocialAccountNode } from "@/types/user";
-import { useMemo } from "react";
 
 const iconMap: Record<string, string> = {
   devto: mdiDevTo,
