@@ -1,0 +1,32 @@
+query ($login: String!) {
+  user(login: $login) {
+    id
+    name
+    avatarUrl
+    bio
+    followers {
+      totalCount
+    }
+    following {
+      totalCount
+    }
+    starredRepositories {
+      totalCount
+    }
+    socialAccounts(first: 100) {
+      nodes {
+        displayName
+        provider
+        url
+      }
+    }
+    status {
+      message
+      emoji
+      emojiHTML
+    }
+    watching {
+      totalCount
+    }
+  }
+}
