@@ -30,7 +30,7 @@ export default function Metric({
 
   return (
     <div className="grid grid-cols-1 gap-2 justify-items-center">
-      <Icon title={data.title} path={icon} size={2} color="white" />
+      <Icon title={data.title} path={icon} size={3} color="white" />
       <span className="text-2xl font-light">{data.title}</span>
       <span className="text-2xl font-medium">{data.value}</span>
       {data.secondaryValue ? (
