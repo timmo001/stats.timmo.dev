@@ -17,6 +17,10 @@ concurrency:
   group: codeql-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  security-events: write
+
 jobs:
   codeql-analyze-javascript:
     uses: timmo001/workflows/.github/workflows/codeql-javascript.yml@master
