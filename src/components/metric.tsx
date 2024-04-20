@@ -2,7 +2,11 @@ import { useMemo } from "react";
 import Icon from "@mdi/react";
 import {
   mdiAccountMultipleOutline,
+  mdiBullseye,
+  mdiHandshake,
   mdiSourceBranchRefresh,
+  mdiSourceCommit,
+  mdiSourcePull,
   mdiSourceRepositoryMultiple,
   mdiStarOutline,
 } from "@mdi/js";
@@ -12,6 +16,10 @@ const iconMap: Record<string, string> = {
   followers: mdiAccountMultipleOutline,
   starredRepositories: mdiStarOutline,
   watching: mdiSourceBranchRefresh,
+  contributions: mdiSourceCommit,
+  issues: mdiBullseye,
+  pullRequests: mdiSourcePull,
+  reviews: mdiHandshake,
 };
 
 export default function Metric({

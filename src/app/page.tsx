@@ -64,6 +64,36 @@ export default async function Home() {
               value: user.starredRepositories.totalCount,
             }}
           />
+          <Metric
+            data={{
+              key: "contributions",
+              title: "Contributions",
+              value: user.contributionsCollection.totalCommitContributions,
+            }}
+          />
+          <Metric
+            data={{
+              key: "issues",
+              title: "Issues",
+              value: user.contributionsCollection.totalIssueContributions,
+            }}
+          />
+          <Metric
+            data={{
+              key: "pullRequests",
+              title: "Pull Requests",
+              value: user.contributionsCollection.totalPullRequestContributions,
+            }}
+          />
+          <Metric
+            data={{
+              key: "reviews",
+              title: "Reviews",
+              value:
+                user.contributionsCollection
+                  .totalPullRequestReviewContributions,
+            }}
+          />
         </section>
       </main>
     </>
