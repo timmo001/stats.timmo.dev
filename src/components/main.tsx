@@ -66,7 +66,7 @@ export default async function Main({ username }: { username: string }) {
       <Image
         className="absolute top-0 object-top object-contain -z-10"
         alt="Profile Picture"
-        src="/logo-nobackground-4k.png"
+        src="/logo.png"
         priority
         width={854}
         height={480}
