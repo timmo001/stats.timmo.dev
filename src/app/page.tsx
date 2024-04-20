@@ -9,10 +9,57 @@ import Metric from "@/components/metric";
 export default async function Home() {
   const { user } = await getUserData();
 
-  // Convert KB to GB and round to 2 decimal places
-  const repositoriesDiskUsage = user.repositories.totalDiskUsage;
-  const repositoriesDiskUsageGB =
-    Math.round((repositoriesDiskUsage / 1024 / 1024) * 100) / 100;
+  const githubMetrics: Array<{
+    key: string;
+    title: string;
+    value: string | number;
+    secondaryValue?: string | number;
+  }> = [
+    {
+      key: "repositories",
+      title: "Repositories",
+      value: user.repositories.totalCount,
+      secondaryValue: `(${
+        Math.round((user.repositories.totalDiskUsage / 1024 / 1024) * 100) / 100
+      } GB)`,
+    },
+    {
+      key: "followers",
+      title: "Followers",
+      value: user.followers.totalCount,
+      secondaryValue: `(${user.following.totalCount} following)`,
+    },
+    {
+      key: "watching",
+      title: "Watching",
+      value: user.watching.totalCount,
+    },
+    {
+      key: "starredRepositories",
+      title: "Stars",
+      value: user.starredRepositories.totalCount,
+    },
+    {
+      key: "contributions",
+      title: "Contributions",
+      value: user.contributionsCollection.totalCommitContributions,
+    },
+    {
+      key: "issues",
+      title: "Issues",
+      value: user.contributionsCollection.totalIssueContributions,
+    },
+    {
+      key: "pullRequests",
+      title: "Pull Requests",
+      value: user.contributionsCollection.totalPullRequestContributions,
+    },
+    {
+      key: "reviews",
+      title: "Reviews",
+      value: user.contributionsCollection.totalPullRequestReviewContributions,
+    },
+  ];
 
   return (
     <>
@@ -34,66 +81,9 @@ export default async function Home() {
           <h2 className="ml-2 text-5xl font-extralight">GitHub Metrics</h2>
         </div>
         <section className="grid grid-cols-4 gap-12">
-          <Metric
-            data={{
-              key: "repositories",
-              title: "Repositories",
-              value: user.repositories.totalCount,
-              secondaryValue: `(${repositoriesDiskUsageGB} GB)`,
-            }}
-          />
-          <Metric
-            data={{
-              key: "followers",
-              title: "Followers",
-              value: user.followers.totalCount,
-              secondaryValue: `(${user.following.totalCount} following)`,
-            }}
-          />
-          <Metric
-            data={{
-              key: "watching",
-              title: "Watching",
-              value: user.watching.totalCount,
-            }}
-          />
-          <Metric
-            data={{
-              key: "starredRepositories",
-              title: "Stars",
-              value: user.starredRepositories.totalCount,
-            }}
-          />
-          <Metric
-            data={{
-              key: "contributions",
-              title: "Contributions",
-              value: user.contributionsCollection.totalCommitContributions,
-            }}
-          />
-          <Metric
-            data={{
-              key: "issues",
-              title: "Issues",
-              value: user.contributionsCollection.totalIssueContributions,
-            }}
-          />
-          <Metric
-            data={{
-              key: "pullRequests",
-              title: "Pull Requests",
-              value: user.contributionsCollection.totalPullRequestContributions,
-            }}
-          />
-          <Metric
-            data={{
-              key: "reviews",
-              title: "Reviews",
-              value:
-                user.contributionsCollection
-                  .totalPullRequestReviewContributions,
-            }}
-          />
+          {githubMetrics.map((metric) => (
+            <Metric key={metric.key} data={metric} />
+          ))}
         </section>
       </main>
     </>
