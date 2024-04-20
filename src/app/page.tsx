@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { mdiGithub } from "@mdi/js";
+import Icon from "@mdi/react";
 
 import { getUserData } from "@/serverActions/github";
 import Header from "@/components/header";
@@ -27,7 +29,10 @@ export default async function Home() {
       />
       <Header user={user} />
       <main className="grid grid-cols-1 gap-12 mt-16 text-center">
-        <h2 className="text-5xl font-extralight">GitHub Metrics</h2>
+        <div className="flex justify-center">
+          <Icon title="GitHub" path={mdiGithub} size={2} color="white" />
+          <h2 className="ml-2 text-5xl font-extralight">GitHub Metrics</h2>
+        </div>
         <section className="grid grid-cols-4 gap-12">
           <Metric
             data={{
