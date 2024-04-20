@@ -16,7 +16,7 @@ export default function Header({ user }: { user: UserNode }) {
           account={{
             displayName: "GitHub",
             provider: "github",
-            url: `https://github.com/${user.name}`,
+            url: `https://github.com/${user.login}`,
           }}
         />
 
