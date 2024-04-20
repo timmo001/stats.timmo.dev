@@ -6,16 +6,21 @@ export interface UserNode {
   name: string;
   avatarUrl: string;
   bio: string;
-  followers: Followers;
-  following: Followers;
-  starredRepositories: Followers;
+  followers: Count;
+  following: Count;
+  repositories: Repositories;
+  starredRepositories: Count;
   socialAccounts: SocialAccounts;
   status: Status;
-  watching: Followers;
+  watching: Count;
 }
 
-export interface Followers {
+export interface Count {
   totalCount: number;
+}
+
+export interface Repositories extends Count {
+  totalDiskUsage: number;
 }
 
 export interface SocialAccounts {

@@ -1,11 +1,16 @@
 import Image from "next/image";
 
 import { getUserData } from "@/serverActions/github";
-import { SocialAccountNode } from "@/types/user";
-import SocialLink from "@/components/socialLink";
+import Header from "@/components/header";
+import Metric from "@/components/metric";
 
 export default async function Home() {
   const { user } = await getUserData();
+
+  // Convert KB to GB and round to 2 decimal places
+  const repositoriesDiskUsage = user.repositories.totalDiskUsage;
+  const repositoriesDiskUsageGB =
+    Math.round((repositoriesDiskUsage / 1024 / 1024) * 100) / 100;
 
   return (
     <>
@@ -20,42 +25,38 @@ export default async function Home() {
           marginTop: "-100px",
         }}
       />
-      <header
-        className="text-center text-white"
-        style={{
-          marginTop: "240px",
-        }}
-      >
-        <div className="grid grid-cols-4 gap-12">
-          <SocialLink
-            account={{
-              displayName: "GitHub",
-              provider: "github",
-              url: "https://github.com/timmo001",
+      <Header user={user} />
+      <main className="grid grid-cols-1 gap-12 mt-16 text-center">
+        <h2 className="text-5xl font-extralight">Metrics</h2>
+        <h3 className="text-3xl font-light">GitHub</h3>
+        <section className="grid grid-cols-4 gap-12">
+          <Metric
+            data={{
+              title: "Repositories",
+              value: user.repositories.totalCount,
+              secondaryValue: `(${repositoriesDiskUsageGB} GB)`,
             }}
           />
-
-          {user.socialAccounts.nodes.map((account: SocialAccountNode) => (
-            <SocialLink
-              key={account.provider}
-              account={{
-                ...account,
-                // Capitalize the first letter of the provider
-                displayName:
-                  account.provider[0].toUpperCase() +
-                  account.provider.slice(1).toLowerCase(),
-              }}
-            />
-          ))}
-          <SocialLink
-            account={{
-              displayName: "Email",
-              provider: "email",
-              url: "mailto:aidan@timmo.dev",
+          <Metric
+            data={{
+              title: "Followers",
+              value: user.followers.totalCount,
             }}
           />
-        </div>
-      </header>
+          <Metric
+            data={{
+              title: "Following",
+              value: user.following.totalCount,
+            }}
+          />
+          <Metric
+            data={{
+              title: "Stars",
+              value: user.starredRepositories.totalCount,
+            }}
+          />
+        </section>
+      </main>
     </>
   );
 }

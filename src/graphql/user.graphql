@@ -10,6 +10,10 @@ query ($login: String!) {
     following {
       totalCount
     }
+    repositories {
+      totalCount
+      totalDiskUsage
+    }
     starredRepositories {
       totalCount
     }
