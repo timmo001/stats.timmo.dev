@@ -6,14 +6,14 @@ import { User } from "@/types/user";
 
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
-export async function getUserData(): Promise<User> {
+export async function getUserData(user: string): Promise<User> {
   const query = await fs.readFile(
     `${process.cwd()}/src/graphql/user.graphql`,
     "utf-8"
   );
   try {
     return await octokit.graphql<User>(query, {
-      login: "timmo001",
+      login: user,
     });
   } catch (error) {
     console.error(error);
