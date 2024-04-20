@@ -1,12 +1,7 @@
 export interface User {
-  data: Data;
+  user: UserNode;
 }
-
-export interface Data {
-  user: UserClass;
-}
-
-export interface UserClass {
+export interface UserNode {
   id: string;
   name: string;
   avatarUrl: string;
@@ -24,10 +19,10 @@ export interface Followers {
 }
 
 export interface SocialAccounts {
-  nodes: Node[];
+  nodes: Array<SocialAccountNode>;
 }
 
-export interface Node {
+export interface SocialAccountNode {
   displayName: string;
   provider: string;
   url: string;

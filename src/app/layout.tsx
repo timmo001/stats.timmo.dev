@@ -19,7 +19,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} bg-gradient-to-b from-indigo-950 to-slate-900`}
       >
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <main className="flex min-h-screen flex-col items-center justify-between p-8">
           {children}
         </main>
       </body>
