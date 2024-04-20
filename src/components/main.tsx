@@ -63,17 +63,30 @@ export default async function Main({ username }: { username: string }) {
 
   return (
     <>
-      <Image
-        className="absolute top-0 object-top object-contain -z-10"
-        alt="Profile Picture"
-        src="/logo.png"
-        priority
-        width={854}
-        height={480}
-        style={{
-          marginTop: "-100px",
-        }}
-      />
+      {process.env.LOGO_URL ? (
+        <img
+          className="absolute top-0 object-top object-contain -z-10"
+          alt="Logo"
+          src={process.env.LOGO_URL}
+          style={{
+            height: 480,
+            width: "100%",
+          }}
+        />
+      ) : (
+        <Image
+          className="absolute top-0 object-top object-contain -z-10"
+          alt="Logo"
+          src={process.env.LOGO_URL || "/logo.png"}
+          priority
+          width={854}
+          height={480}
+          quality={100}
+          style={{
+            marginTop: "-100px",
+          }}
+        />
+      )}
       <Header user={user} />
       <main className="grid grid-cols-1 gap-12 mt-16 text-center">
         <div className="flex justify-center">

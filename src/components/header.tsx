@@ -9,12 +9,14 @@ export default function Header({ user }: { user: UserNode }) {
         marginTop: "240px",
       }}
     >
-      <div className="grid grid-cols-5 gap-20">
+      <div
+        className={`flex flex-row gap-20`}
+      >
         <SocialLink
           account={{
             displayName: "GitHub",
             provider: "github",
-            url: "https://github.com/timmo001",
+            url: `https://github.com/${user.name}`,
           }}
         />
 
@@ -30,11 +32,12 @@ export default function Header({ user }: { user: UserNode }) {
             }}
           />
         ))}
+
         <SocialLink
           account={{
             displayName: "Email",
             provider: "email",
-            url: "mailto:aidan@timmo.dev",
+            url: `mailto:${user.email}`,
           }}
         />
       </div>

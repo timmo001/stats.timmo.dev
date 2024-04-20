@@ -6,6 +6,8 @@ export interface UserNode {
   name: string;
   avatarUrl: string;
   bio: string;
+  email: string;
+  login: string;
   contributionsCollection: ContributionsCollection;
   followers: Count;
   following: Count;

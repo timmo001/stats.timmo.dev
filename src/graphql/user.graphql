@@ -4,6 +4,8 @@ query ($login: String!) {
     name
     avatarUrl
     bio
+    email
+    login
     contributionsCollection {
       totalCommitContributions
       totalIssueContributions

@@ -1,5 +1,5 @@
 import Main from "@/components/main";
 
 export default async function Home() {
-  return <Main username={process.env.USERNAME || "timmo001"} />;
+  return <Main username={process.env.GITHUB_USERNAME || "timmo001"} />;
 }
