@@ -11,6 +11,8 @@ import {
   mdiStarOutline,
 } from "@mdi/js";
 
+import { Metric as MetricItem } from "@/types/github/metric";
+
 const iconMap: Record<string, string> = {
   repositories: mdiSourceRepositoryMultiple,
   followers: mdiAccountMultipleOutline,
@@ -22,22 +24,18 @@ const iconMap: Record<string, string> = {
   reviews: mdiHandshake,
 };
 
-export default function Metric({
-  data,
-}: {
-  data: {
-    key: keyof typeof iconMap;
-    title: string;
-    value: string | number;
-    secondaryValue?: string | number;
-  };
-}) {
+export default function Metric({ data }: { data: MetricItem }) {
   const icon = useMemo<string>(() => {
     return iconMap[data.key];
   }, [data.key]);
 
   return (
-    <div className="grid grid-cols-1 justify-items-center">
+    <a
+      className="grid grid-cols-1 justify-items-center"
+      href={data.url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <Icon title={data.title} path={icon} size={3} color="white" />
       <h3 className="mt-2 text-2xl font-light">{data.title}</h3>
       <span className="text-2xl font-medium">{data.value}</span>
@@ -50,6 +48,6 @@ export default function Metric({
           }}
         />
       )}
-    </div>
+    </a>
   );
 }
