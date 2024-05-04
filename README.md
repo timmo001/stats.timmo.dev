@@ -10,9 +10,9 @@ Yes! This project is open source and licensed under the Apache 2.0 license. Feel
 
 The following pages are available:
 
-- `/` - The main page, displaying the metrics
-- `/github/metrics` - The metrics section for GitHub.
-- `/github/topLanguages` - The top languages section for GitHub.
+- [`/`](https://metrics.timmo.dev/) - The main page, displaying the metrics
+- [`/github/metrics`](https://metrics.timmo.dev/github/metrics) - The metrics section for GitHub.
+- [`/github/topLanguages`](https://metrics.timmo.dev/github/topLanguages) - The top languages section for GitHub.
 
 ## Deploying
 
