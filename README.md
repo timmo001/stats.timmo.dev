@@ -6,7 +6,15 @@ This is a small portal to display metrics. It is built with [Next.js](https://ne
 
 Yes! This project is open source and licensed under the Apache 2.0 license. Feel free to fork this project and make it your own.
 
-### Automatic
+## What pages are available?
+
+The following pages are available:
+
+- `/` - The main page, displaying the metrics
+- `/github/metrics` - The metrics section for GitHub.
+- `/github/topLanguages` - The top languages section for GitHub.
+
+## Deploying
 
 You can deploy your own instance of this project with Vercel by clicking the button below. You will need to provide your GitHub username and a GitHub Personal Access Token with the `repo` and `user` read scopes. From there, you can customise the project to your liking.
 
