@@ -1,9 +1,14 @@
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { Metric as MetricItem } from "@/types/github/metric";
 import { USERNAME, getMetrics } from "@/lib/github";
 import { getUserData } from "@/serverActions/github";
 import GitHubMetrics from "@/components/github/metrics";
+
+export const metadata: Metadata = {
+  title: "Metric | Timmo Metrics",
+};
 
 export default async function Metric({ params }: { params: { key: string } }) {
   const { key } = params;

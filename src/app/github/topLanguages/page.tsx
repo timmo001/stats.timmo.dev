@@ -1,6 +1,12 @@
+import { Metadata } from "next";
+
 import { USERNAME, getTopLanguages } from "@/lib/github";
 import { getUserData } from "@/serverActions/github";
 import GitHubTopLanguages from "@/components/github/topLanguages";
+
+export const metadata: Metadata = {
+  title: "Top Languages | Timmo Metrics",
+};
 
 export default async function TopLanguages() {
   const { user } = await getUserData(USERNAME);
