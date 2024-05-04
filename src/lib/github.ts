@@ -1,7 +1,7 @@
 import { Language } from "@/types/github/language";
 import { Metric } from "@/types/github/metric";
 import { UserNode } from "@/types/github/user";
-import { getContrastColorHex } from "@/lib/color";
+import { getContrastColor, getRGBColorFromHex } from "@/lib/color";
 
 export function getMetrics(user: UserNode): Array<Metric> {
   return [
@@ -76,7 +76,7 @@ export function getTopLanguages(user: UserNode): Array<Language> {
           size: language.size,
           color: language.node.color,
           contrastColor: language.node.color
-            ? getContrastColorHex(language.node.color)
+            ? getContrastColor(getRGBColorFromHex(language.node.color))
             : "white",
         });
       } else {
