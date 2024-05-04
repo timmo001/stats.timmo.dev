@@ -9,7 +9,7 @@ export function getMetrics(user: UserNode): Array<Metric> {
   return [
     {
       key: "repositories",
-      url: "https://github.com/timmo001?tab=repositories",
+      url: `https://github.com/${USERNAME}?tab=repositories`,
       title: "Repositories",
       value: user.repositories.totalCount,
       secondaryValue: `(${
@@ -18,44 +18,44 @@ export function getMetrics(user: UserNode): Array<Metric> {
     },
     {
       key: "followers",
-      url: "https://github.com/timmo001?tab=followers",
+      url: `https://github.com/${USERNAME}?tab=followers`,
       title: "Followers",
       value: user.followers.totalCount,
       secondaryValue: `(${user.following.totalCount} following)`,
     },
     {
       key: "watching",
-      url: "https://github.com/timmo001?tab=following",
+      url: `https://github.com/${USERNAME}?tab=following`,
       title: "Watching",
       value: user.watching.totalCount,
     },
     {
       key: "starredRepositories",
-      url: "https://github.com/timmo001?tab=stars",
+      url: `https://github.com/${USERNAME}?tab=stars`,
       title: "Stars",
       value: user.starredRepositories.totalCount,
     },
     {
       key: "contributions",
-      url: "https://github.com/timmo001?tab=overview",
+      url: `https://github.com/${USERNAME}?tab=overview`,
       title: "Contributions",
       value: user.contributionsCollection.totalCommitContributions,
     },
     {
       key: "issues",
-      url: "https://github.com/timmo001?tab=overview",
+      url: `https://github.com/${USERNAME}?tab=overview`,
       title: "Issues",
       value: user.contributionsCollection.totalIssueContributions,
     },
     {
       key: "pullRequests",
-      url: "https://github.com/timmo001?tab=overview",
+      url: `https://github.com/${USERNAME}?tab=overview`,
       title: "Pull Requests",
       value: user.contributionsCollection.totalPullRequestContributions,
     },
     {
       key: "reviews",
-      url: "https://github.com/timmo001?tab=overview",
+      url: `https://github.com/${USERNAME}?tab=overview`,
       title: "Reviews",
       value: user.contributionsCollection.totalPullRequestReviewContributions,
     },
