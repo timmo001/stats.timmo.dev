@@ -1,10 +1,9 @@
-import { getTopLanguages } from "@/lib/github";
+import { USERNAME, getTopLanguages } from "@/lib/github";
 import { getUserData } from "@/serverActions/github";
 import GitHubTopLanguages from "@/components/github/topLanguages";
 
 export default async function TopLanguages() {
-  const username = process.env.GITHUB_USERNAME || "timmo001";
-  const { user } = await getUserData(username);
+  const { user } = await getUserData(USERNAME);
   const githubTopLanguages = getTopLanguages(user);
 
   return (
