@@ -3,7 +3,8 @@ import Image from "next/image";
 import { getMetrics, getTopLanguages } from "@/lib/github";
 import { getUserData } from "@/serverActions/github";
 import Header from "@/components/header";
-import Metric from "@/components/metric";
+import GitHubMetrics from "@/components/github/metrics";
+import GitHubTopLanguages from "@/components/github/topLanguages";
 
 export default async function Main({ username }: { username: string }) {
   const { user } = await getUserData(username);
@@ -41,26 +42,8 @@ export default async function Main({ username }: { username: string }) {
       <Header user={user} />
       <main className="grid grid-cols-1 gap-12 mt-8 text-center">
         <section>
-          {githubTopLanguages.length > 0 && (
-            <div className="mt-4 grid grid-cols-6 gap-4">
-              {githubTopLanguages.map((language) => (
-                <span
-                  className="inline-flex items-center px-3 py-1 text-sm font-medium leading-5 rounded-full"
-                  style={{
-                    color: language.contrastColor,
-                    backgroundColor: language.color,
-                  }}
-                >
-                  {language.name}
-                </span>
-              ))}
-            </div>
-          )}
-          <div className="mt-12 grid grid-cols-4 gap-12">
-            {githubMetrics.map((metric) => (
-              <Metric key={metric.key} data={metric} />
-            ))}
-          </div>
+          <GitHubTopLanguages data={githubTopLanguages} />
+          <GitHubMetrics data={githubMetrics} />
         </section>
       </main>
     </>

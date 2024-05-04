@@ -8,7 +8,7 @@ import {
   mdiTwitter,
 } from "@mdi/js";
 
-import { SocialAccountNode } from "@/types/user";
+import { SocialAccountNode } from "@/types/github/user";
 
 const iconMap: Record<string, string> = {
   devto: mdiDevTo,

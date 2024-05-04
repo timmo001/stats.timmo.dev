@@ -1,12 +1,9 @@
-import { UserNode } from "@/types/user";
+import { Language } from "@/types/github/language";
+import { Metric } from "@/types/github/metric";
+import { UserNode } from "@/types/github/user";
 import { getContrastColorHex } from "@/lib/color";
 
-export function getMetrics(user: UserNode): Array<{
-  key: string;
-  title: string;
-  value: string | number;
-  secondaryValue?: string | number;
-}> {
+export function getMetrics(user: UserNode): Array<Metric> {
   return [
     {
       key: "repositories",
@@ -55,12 +52,7 @@ export function getMetrics(user: UserNode): Array<{
   ];
 }
 
-export function getTopLanguages(user: UserNode): Array<{
-  name: string;
-  size: number;
-  color: string;
-  contrastColor: string;
-}> {
+export function getTopLanguages(user: UserNode): Array<Language> {
   let topLanguages: Array<{
     name: string;
     size: number;

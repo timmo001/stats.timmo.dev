@@ -1,4 +1,4 @@
-import { SocialAccountNode, UserNode } from "@/types/user";
+import { SocialAccountNode, UserNode } from "@/types/github/user";
 import SocialLink from "@/components/socialLink";
 
 export default function Header({ user }: { user: UserNode }) {
