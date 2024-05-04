@@ -18,9 +18,25 @@ query ($login: String!) {
     following {
       totalCount
     }
-    repositories {
+    repositories(
+      first: 100
+      isFork: false
+      orderBy: { field: UPDATED_AT, direction: DESC }
+    ) {
       totalCount
       totalDiskUsage
+      nodes {
+        name
+        languages(first: 100, orderBy: { field: SIZE, direction: DESC }) {
+          edges {
+            size
+            node {
+              name
+              color
+            }
+          }
+        }
+      }
     }
     starredRepositories {
       totalCount

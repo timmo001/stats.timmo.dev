@@ -31,6 +31,26 @@ export interface Count {
 
 export interface Repositories extends Count {
   totalDiskUsage: number;
+  nodes: RepositoriesNodeElement[];
+}
+
+export interface RepositoriesNodeElement {
+  name: string;
+  languages: Languages;
+}
+
+export interface Languages {
+  edges: Edge[];
+}
+
+export interface Edge {
+  size: number;
+  node: EdgeNode;
+}
+
+export interface EdgeNode {
+  name: string;
+  color: string;
 }
 
 export interface SocialAccounts {

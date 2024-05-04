@@ -39,7 +39,7 @@ export default function Metric({
   return (
     <div className="grid grid-cols-1 justify-items-center">
       <Icon title={data.title} path={icon} size={3} color="white" />
-      <span className="mt-2 text-2xl font-light">{data.title}</span>
+      <h3 className="mt-2 text-2xl font-light">{data.title}</h3>
       <span className="text-2xl font-medium">{data.value}</span>
       {data.secondaryValue ? (
         <span className="text-sm font-normal">{data.secondaryValue}</span>
