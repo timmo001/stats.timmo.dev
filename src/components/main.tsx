@@ -42,8 +42,12 @@ export default async function Main({ username }: { username: string }) {
       <Header user={user} />
       <main className="grid grid-cols-1 gap-12 mt-8 text-center">
         <section>
-          <GitHubTopLanguages data={githubTopLanguages} />
-          <GitHubMetrics data={githubMetrics} />
+          <div className="mt-4 grid grid-cols-6 gap-4">
+            <GitHubTopLanguages data={githubTopLanguages} />
+          </div>
+          <div className="mt-12 grid grid-cols-4 gap-12">
+            <GitHubMetrics data={githubMetrics} />
+          </div>
         </section>
       </main>
     </>
