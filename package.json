@@ -11,6 +11,8 @@
   "dependencies": {
     "@mdi/js": "7.4.47",
     "@mdi/react": "1.6.1",
+    "@mui/x-charts": "7.6.2",
+    "date-fns": "3.6.0",
     "graphql": "16.8.1",
     "next": "14.2.4",
     "octokit": "4.0.2",

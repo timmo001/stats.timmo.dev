@@ -1,6 +1,7 @@
 export interface User {
   user: UserNode;
 }
+
 export interface UserNode {
   id: string;
   name: string;

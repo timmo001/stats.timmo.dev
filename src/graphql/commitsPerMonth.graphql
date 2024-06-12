@@ -1,0 +1,28 @@
+query ($id: ID!, $login: String!, $since: GitTimestamp!) {
+  user(login: $login) {
+    repositories(
+      first: 100
+      isFork: false
+      orderBy: { field: UPDATED_AT, direction: DESC }
+    ) {
+      nodes {
+        name
+        defaultBranchRef {
+          target {
+            ... on Commit {
+              history(author: { id: $id }, since: $since) {
+                totalCount
+                nodes {
+                  author {
+                    name
+                  }
+                  committedDate
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
