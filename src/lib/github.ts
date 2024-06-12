@@ -1,11 +1,11 @@
 import { Language } from "@/types/github/language";
-import { Metric } from "@/types/github/metric";
+import { Stat } from "@/types/github/stat";
 import { UserNode } from "@/types/github/user";
 import { getContrastColor, getRGBColorFromHex } from "@/lib/color";
 
 export const USERNAME = process.env.GITHUB_USERNAME || "timmo001";
 
-export function getMetrics(user: UserNode): Array<Metric> {
+export function getStats(user: UserNode): Array<Stat> {
   return [
     {
       key: "repositories",

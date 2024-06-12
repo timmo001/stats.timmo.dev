@@ -1,29 +1,32 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { Metric as MetricItem } from "@/types/github/metric";
-import { USERNAME, getMetrics } from "@/lib/github";
+import { Stat as StatItem } from "@/types/github/stat";
+import { USERNAME, getStats } from "@/lib/github";
 import { getUserData } from "@/serverActions/github";
-import GitHubMetrics from "@/components/github/metrics";
+import GitHubStats from "@/components/github/stats";
 
 export const metadata: Metadata = {
-  title: "Metric | Timmo Metrics",
+  title: "Stat | Timmo Stats",
 };
 
-export default async function Metric({ params }: { params: { key: string } }) {
+// Revalidate every 5 minutes
+export const revalidate = 300;
+
+export default async function Stat({ params }: { params: { key: string } }) {
   const { key } = params;
 
   const { user } = await getUserData(USERNAME);
-  const githubMetrics = getMetrics(user);
+  const githubStats = getStats(user);
 
-  // Find the metric with the key that matches the URL parameter
-  const metric = githubMetrics.find((metric: MetricItem) => metric.key === key);
-  console.log({ metric });
-  if (!metric) notFound();
+  // Find the stat with the key that matches the URL parameter
+  const stat = githubStats.find((stat: StatItem) => stat.key === key);
+  console.log({ stat });
+  if (!stat) notFound();
 
   return (
     <div className="grid grid-cols-1 gap-12">
-      <GitHubMetrics data={[metric]} />
+      <GitHubStats data={[stat]} />
     </div>
   );
 }

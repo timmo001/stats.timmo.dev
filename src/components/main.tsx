@@ -1,15 +1,15 @@
 import Image from "next/image";
 
-import { getMetrics, getTopLanguages } from "@/lib/github";
+import { getStats, getTopLanguages } from "@/lib/github";
 import { getUserData } from "@/serverActions/github";
 import Header from "@/components/header";
-import GitHubMetrics from "@/components/github/metrics";
+import GitHubStats from "@/components/github/stats";
 import GitHubTopLanguages from "@/components/github/topLanguages";
 
 export default async function Main({ username }: { username: string }) {
   const { user } = await getUserData(username);
-  const [githubMetrics, githubTopLanguages] = await Promise.all([
-    getMetrics(user),
+  const [githubStats, githubTopLanguages] = await Promise.all([
+    getStats(user),
     getTopLanguages(user),
   ]);
 
@@ -46,7 +46,7 @@ export default async function Main({ username }: { username: string }) {
             <GitHubTopLanguages data={githubTopLanguages} />
           </div>
           <div className="mt-12 grid grid-cols-4 gap-12">
-            <GitHubMetrics data={githubMetrics} />
+            <GitHubStats data={githubStats} />
           </div>
         </section>
       </main>

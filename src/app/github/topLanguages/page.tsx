@@ -5,8 +5,11 @@ import { getUserData } from "@/serverActions/github";
 import GitHubTopLanguages from "@/components/github/topLanguages";
 
 export const metadata: Metadata = {
-  title: "Top Languages | Timmo Metrics",
+  title: "Top Languages | Timmo Stats",
 };
+
+// Revalidate every 30 minutes
+export const revalidate = 1800;
 
 export default async function TopLanguages() {
   const { user } = await getUserData(USERNAME);

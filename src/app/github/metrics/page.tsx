@@ -1,20 +1,23 @@
 import { Metadata } from "next";
 
-import { USERNAME, getMetrics } from "@/lib/github";
+import { USERNAME, getStats } from "@/lib/github";
 import { getUserData } from "@/serverActions/github";
-import GitHubMetrics from "@/components/github/metrics";
+import GitHubStats from "@/components/github/stats";
 
 export const metadata: Metadata = {
-  title: "Metrics | Timmo Metrics",
+  title: "Stats | Timmo Stats",
 };
 
-export default async function Metrics() {
+// Revalidate every 30 minutes
+export const revalidate = 1800;
+
+export default async function Stats() {
   const { user } = await getUserData(USERNAME);
-  const githubMetrics = getMetrics(user);
+  const githubStats = getStats(user);
 
   return (
     <div className="grid grid-cols-4 gap-12">
-      <GitHubMetrics data={githubMetrics} />
+      <GitHubStats data={githubStats} />
     </div>
   );
 }

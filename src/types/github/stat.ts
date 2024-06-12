@@ -1,4 +1,4 @@
-export interface Metric {
+export interface Stat {
   key: string;
   url: string;
   title: string;

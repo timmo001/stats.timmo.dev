@@ -11,7 +11,7 @@ import {
   mdiStarOutline,
 } from "@mdi/js";
 
-import { Metric as MetricItem } from "@/types/github/metric";
+import { Stat as StatItem } from "@/types/github/stat";
 
 const iconMap: Record<string, string> = {
   repositories: mdiSourceRepositoryMultiple,
@@ -24,7 +24,7 @@ const iconMap: Record<string, string> = {
   reviews: mdiHandshake,
 };
 
-export default function Metric({ data }: { data: MetricItem }) {
+export default function Stat({ data }: { data: StatItem }) {
   const icon = useMemo<string>(() => {
     return iconMap[data.key];
   }, [data.key]);

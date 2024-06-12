@@ -6,8 +6,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Timmo Metrics",
-  description: "Aggregated metrics for Timmo",
+  title: "Timmo Stats",
+  description: "Aggregated stats for Timmo",
 };
 
 export default function RootLayout({
